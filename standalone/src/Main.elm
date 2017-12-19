@@ -4,8 +4,9 @@ import Html exposing (Html, text, div, h1, a)
 import Html.Attributes exposing (href)
 import Model exposing (..)
 import Journalpostinformasjon exposing (..)
-import Dropdown exposing (..)
 import Dokumentinformasjon exposing (..)
+import Avsenderinformasjon exposing (..)
+import Saker exposing (..)
 import Maybe exposing (..)
 import List.Extra exposing (find)
 
@@ -17,6 +18,8 @@ type alias Model =
     { journalpost : Journalpost
     , dokumentkategoriList : List Dokumentkategori
     , valgtDokumentkategori : Maybe Dokumentkategori
+    , avsenderinformasjon : Maybe Bruker
+    , saker : List Sak
     }
 
 
@@ -43,6 +46,31 @@ init =
             , { kategoriId = 2, dekode = "en Kategori til" }
             ]
       , valgtDokumentkategori = Nothing
+      , avsenderinformasjon =
+            Just
+                { fodselsnummer = "0000000000"
+                , navn = "Navn Navnesen"
+                }
+      , saker =
+            [ { sakId = "1"
+              , fagsystem = "et fagsystem"
+              , saktype = "en type"
+              , opprettetMottatt = "2017.12.12"
+              , statusFagsak = "all good"
+              , statusEndret = "endret"
+              , ansvarligEnhet = "0023"
+              , detaljer = "en knapp"
+              }
+            , { sakId = "2"
+              , fagsystem = "et annet fagsystem"
+              , saktype = "en annen type"
+              , opprettetMottatt = "2017.10.8"
+              , statusFagsak = "all good"
+              , statusEndret = "endret"
+              , ansvarligEnhet = "0023"
+              , detaljer = "en knapp"
+              }
+            ]
       }
     , Cmd.none
     )
@@ -100,6 +128,8 @@ view model =
         , a [ href "/integrated" ] [ text "Tilbake" ]
         , journalpostinformasjon model.journalpost
         , dokumentinformasjon model.dokumentkategoriList
+        , avsenderinformasjon model.avsenderinformasjon
+        , saker model.saker
         ]
 
 

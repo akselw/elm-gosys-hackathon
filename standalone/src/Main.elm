@@ -11,35 +11,33 @@ import Dokumentinformasjon exposing (..)
 
 
 type alias Model =
-    {}
+    { journalpost : Journalpost
+    , dokumentkategoriList : List Dokumentkategori
+    }
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( {}, Cmd.none )
-
-
-journalpost : Journalpost
-journalpost =
-    { journalposttype = "Inngående dokument"
-    , enhet = "en enhet"
-    , saksbehandler = "Navnesen, Navn"
-    , journaldato = "18.08.2017"
-    , registrertDato = "17.08.2017"
-    , opprettetAv = "noen"
-    , tema = "Sykepenger"
-    , status = "Journalført"
-    , mottakskanal = "Skanning Nets"
-    , beskrivelse = "Arbeidsgiver etterlyser refusjon"
-    , journalpostId = "en Id"
-    , avsenderland = "Norge"
-    , batchnavn = "batchnavn"
-    }
-
-
-dokumentkategoriList : List Dokumentkategori
-dokumentkategoriList =
-    [ "en Kategori", "en Kategori til" ]
+    ( { journalpost =
+            { journalposttype = "Inngående dokument"
+            , enhet = "en enhet"
+            , saksbehandler = "Navnesen, Navn"
+            , journaldato = "18.08.2017"
+            , registrertDato = "17.08.2017"
+            , opprettetAv = "noen"
+            , tema = "Sykepenger"
+            , status = "Journalført"
+            , mottakskanal = "Skanning Nets"
+            , beskrivelse = "Arbeidsgiver etterlyser refusjon"
+            , journalpostId = "en Id"
+            , avsenderland = "Norge"
+            , batchnavn = "batchnavn"
+            }
+      , dokumentkategoriList =
+            [ "en Kategori", "en Kategori til" ]
+      }
+    , Cmd.none
+    )
 
 
 
@@ -59,8 +57,8 @@ view : Model -> Html Msg
 view model =
     div []
         [ h1 [] [ text "Journalpost" ]
-        , journalpostinformasjon journalpost
-        , dokumentinformasjon dokumentkategoriList
+        , journalpostinformasjon model.journalpost
+        , dokumentinformasjon model.dokumentkategoriList
         ]
 
 

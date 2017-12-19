@@ -1,6 +1,6 @@
 module Main exposing (..)
 
-import Html exposing (Html, text, div, h1, p, img)
+import Html exposing (Html, text, div, h1)
 import Model exposing (..)
 import Journalpostinformasjon exposing (..)
 import Dropdown exposing (..)
@@ -57,7 +57,8 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ journalpostinformasjon journalpost
+        [ h1 [] [ text "Journalpost" ]
+        , journalpostinformasjon journalpost
         , dropdown dokumentkategoriList
         ]
 

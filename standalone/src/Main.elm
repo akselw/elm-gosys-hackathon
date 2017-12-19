@@ -1,11 +1,8 @@
 module Main exposing (..)
 
 import Html exposing (Html, text, div, h1, p, img)
-import Html.Attributes exposing (src)
-import Test exposing (test)
 import Model exposing (..)
 import TableView exposing (..)
-import Date exposing (fromTime)
 
 
 ---- MODEL ----
@@ -25,8 +22,8 @@ journalpost =
     { journalposttype = "Inngående dokument"
     , enhet = "en enhet"
     , saksbehandler = "Navnesen, Navn"
-    , journaldato = Date.fromTime 0
-    , registrertDato = Date.fromTime 0
+    , journaldato = "18.08.2017"
+    , registrertDato = "17.08.2017"
     , opprettetAv = "noen"
     , tema = "Sykepenger"
     , status = "Journalført"

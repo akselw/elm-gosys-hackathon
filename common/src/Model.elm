@@ -1,14 +1,12 @@
 module Model exposing (..)
 
-import Date exposing (..)
-
 
 type alias Journalpost =
     { journalposttype : String
     , enhet : String
     , saksbehandler : String
-    , journaldato : Date
-    , registrertDato : Date
+    , journaldato : String
+    , registrertDato : String
     , opprettetAv : String
     , tema : String
     , status : String
@@ -30,7 +28,7 @@ type alias Sak =
     { sakId : String
     , fagsystem : String
     , saktype : String
-    , opprettetMottatt : Date
+    , opprettetMottatt : String
     }
 
 

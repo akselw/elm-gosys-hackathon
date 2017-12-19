@@ -1,17 +1,11 @@
+/*
+ * According to style guide: https://navikt.github.io/nav-frontend-moduler/#/styling/farger
+ */
+
 body {
   font-family: 'Source Sans Pro', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Vera Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
-  text-align: center;
-  color: #293c4b;
-}
-
-h1 {
-  font-size: 30px;
-}
-
-img {
-  margin: 20px 0;
-  max-width: 200px;
+  color: #3e3832;
 }
 
 table {
@@ -26,7 +20,7 @@ td, th {
 }
 
 th {
-    background: #a6dad8;
+    background: #e9e7e7;
     padding-right: 1em;
 }
 

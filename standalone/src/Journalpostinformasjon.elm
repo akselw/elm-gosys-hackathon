@@ -1,12 +1,12 @@
-module TableView exposing (..)
+module Journalpostinformasjon exposing (..)
 
 import Html exposing (Html, text, td, th, tr, table)
 import Html.Attributes exposing (colspan)
 import Model exposing (..)
 
 
-tableview : Journalpost -> Html msg
-tableview journalpost =
+journalpostinformasjon : Journalpost -> Html msg
+journalpostinformasjon journalpost =
     table []
         [ tr []
             [ th [] [ text "Journalposttype" ]

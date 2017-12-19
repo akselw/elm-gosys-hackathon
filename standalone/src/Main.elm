@@ -2,7 +2,7 @@ module Main exposing (..)
 
 import Html exposing (Html, text, div, h1, p, img)
 import Model exposing (..)
-import TableView exposing (..)
+import Journalpostinformasjon exposing (..)
 import Dropdown exposing (..)
 
 
@@ -57,7 +57,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ tableview journalpost
+        [ journalpostinformasjon journalpost
         , dropdown dokumentkategoriList
         ]
 

@@ -34,5 +34,5 @@ docker run --interactive --tty --rm --publish 8080:80 gosys-elm
 
 Applikasjonene kjører nå på:
 
-* http://localhost:8080/standalone
-* http://localhost:8080/integrated
+* http://localhost:8080/standalone/
+* http://localhost:8080/integrated/

@@ -33,8 +33,11 @@ type alias Sak =
 
 
 type alias Dokumentkategori =
-    String
+    { kategoriId : Int
+    , dekode : String
+    }
 
 
 type Msg
-    = NoOp
+    = VelgDokumentkategori Int
+    | LeggTilDokumentkategori

@@ -1,12 +1,10 @@
 module Main exposing (..)
 
 import Html exposing (Html, text, div, h1, p, img)
-import Html.Attributes exposing (src)
-import Test exposing (test)
 import Model exposing (Journalpost)
-import Date exposing (fromTime)
 import DokumentOversikt exposing (..)
 import IntegratedModel exposing (..)
+import IntegratedMsg exposing (..)
 
 
 ---- MODEL ----
@@ -14,7 +12,7 @@ import IntegratedModel exposing (..)
 
 init : ( Model, Cmd Msg )
 init =
-    ( { journalposter = [ journalpost1, journalpost2 ] }, Cmd.none )
+    ( { journalposter = [ journalpost1, journalpost2 ], tablePage = 1 }, Cmd.none )
 
 
 journalpost1 : Journalpost
@@ -57,13 +55,32 @@ journalpost2 =
 ---- UPDATE ----
 
 
-type Msg
-    = NoOp
-
-
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    ( model, Cmd.none )
+    case msg of
+        Next ->
+            ( decrementPageIfNotZero model
+            , Cmd.none
+            )
+
+        Previous ->
+            ( incrementPage model, Cmd.none )
+
+        NoOp ->
+            ( model, Cmd.none )
+
+
+decrementPageIfNotZero : Model -> Model
+decrementPageIfNotZero model =
+    if model.tablePage == 0 then
+        { model | tablePage = 0 }
+    else
+        { model | tablePage = model.tablePage - 1 }
+
+
+incrementPage : Model -> Model
+incrementPage model =
+    { model | tablePage = model.tablePage + 1 }
 
 
 
@@ -72,7 +89,10 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    dokumentOversikt model
+    div []
+        [ nextAndPreviousButtons model
+        , dokumentOversikt model
+        ]
 
 
 

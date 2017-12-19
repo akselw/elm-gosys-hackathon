@@ -5,7 +5,7 @@ import Model exposing (..)
 import Dropdown exposing (..)
 
 
-dokumentinformasjon : List Dokumentkategori -> Html msg
+dokumentinformasjon : List Dokumentkategori -> Html Msg
 dokumentinformasjon dokumentkategoriList =
     table []
         [ thead []

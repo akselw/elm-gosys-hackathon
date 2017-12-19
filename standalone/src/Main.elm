@@ -5,6 +5,7 @@ import Model exposing (..)
 import Journalpostinformasjon exposing (..)
 import Dropdown exposing (..)
 import Dokumentinformasjon exposing (..)
+import Maybe exposing (..)
 
 
 ---- MODEL ----
@@ -13,6 +14,7 @@ import Dokumentinformasjon exposing (..)
 type alias Model =
     { journalpost : Journalpost
     , dokumentkategoriList : List Dokumentkategori
+    , valgtDokumentkategori : Maybe Dokumentkategori
     }
 
 
@@ -34,7 +36,10 @@ init =
             , batchnavn = "batchnavn"
             }
       , dokumentkategoriList =
-            [ "en Kategori", "en Kategori til" ]
+            [ { kategoriId = 1, dekode = "en Kategori" }
+            , { kategoriId = 2, dekode = "en Kategori til" }
+            ]
+      , valgtDokumentkategori = Nothing
       }
     , Cmd.none
     )

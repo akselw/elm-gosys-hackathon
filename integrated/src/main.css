@@ -1,15 +1,35 @@
 body {
   font-family: 'Source Sans Pro', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Vera Sans', 'Helvetica Neue', sans-serif;
-  margin: 0;
-  text-align: center;
-  color: #293c4b;
+  margin: 1em 2em;
+  color: #3e3832;
+}
+
+table {
+    border: 0;
+    border-collapse: collapse;
+}
+
+td, th {
+    text-align: left;
+    padding: 0.2em;
+    margin: 0;
+}
+
+th {
+    background: #e9e7e7;
+    padding-right: 1em;
+}
+
+td {
+    padding-right: 2em;
 }
 
 h1 {
-  font-size: 30px;
+    font-size: 2em;
 }
 
-img {
-  margin: 20px 0;
-  max-width: 200px;
+h2 {
+    font-size: 1.5em;
+    color: #c30000;
+    margin: 0.5em 0 0.25em;
 }

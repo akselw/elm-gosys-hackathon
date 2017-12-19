@@ -4,4 +4,4 @@ import Model exposing (..)
 
 
 type alias Model =
-    { journalpost : Journalpost }
+    { journalposter : List Journalpost }

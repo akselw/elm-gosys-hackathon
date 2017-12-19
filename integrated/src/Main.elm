@@ -14,11 +14,29 @@ import IntegratedModel exposing (..)
 
 init : ( Model, Cmd Msg )
 init =
-    ( { journalpost = journalpost }, Cmd.none )
+    ( { journalposter = [ journalpost1, journalpost2 ] }, Cmd.none )
 
 
-journalpost : Journalpost
-journalpost =
+journalpost1 : Journalpost
+journalpost1 =
+    { journalposttype = "Utgående dokument"
+    , enhet = "en annen enhet"
+    , saksbehandler = "Kim, ErTeit"
+    , journaldato = "12.23.2020"
+    , registrertDato = "10.10.2010"
+    , opprettetAv = "en annen"
+    , tema = "Foreldrepenger"
+    , status = "Journalført"
+    , mottakskanal = "Skanning Nets"
+    , beskrivelse = "Arbeidsgiver etterlyser mer penger"
+    , journalpostId = "en annen id"
+    , avsenderland = "Sverige"
+    , batchnavn = "batchnavn"
+    }
+
+
+journalpost2 : Journalpost
+journalpost2 =
     { journalposttype = "Inngående dokument"
     , enhet = "en enhet"
     , saksbehandler = "Navnesen, Navn"

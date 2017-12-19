@@ -1,7 +1,7 @@
 module DokumentOversikt exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (colspan)
+import Html.Attributes exposing (..)
 import IntegratedModel exposing (..)
 import Model exposing (..)
 
@@ -9,9 +9,9 @@ import Model exposing (..)
 dokumentOversikt : Model -> Html msg
 dokumentOversikt model =
     table []
-        [ (journalpostOverskrift model.journalpost)
-        , (journalpostLinje model.journalpost)
-        ]
+        ((journalpostOverskrift model.journalposter)
+            :: (List.map journalpostLinje model.journalposter)
+        )
 
 
 journalpostOverskrift : a -> Html msg
@@ -34,7 +34,9 @@ journalpostOverskrift journalpost =
 journalpostLinje : Journalpost -> Html msg
 journalpostLinje journalpost =
     tr []
-        [ th [] [ text "x" ]
+        [ th []
+            [ input [ type_ "checkbox" ] []
+            ]
         , th [] [ text "LinkKnapp" ]
         , th [] [ text "DokLink" ]
         , th [] [ text (journalpost.journalposttype ++ "Skal konverteres") ]

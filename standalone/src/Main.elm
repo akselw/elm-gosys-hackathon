@@ -1,6 +1,7 @@
 module Main exposing (..)
 
-import Html exposing (Html, text, div, h1)
+import Html exposing (Html, text, div, h1, a)
+import Html.Attributes exposing (href)
 import Model exposing (..)
 import Journalpostinformasjon exposing (..)
 import Dokumentinformasjon exposing (..)
@@ -124,6 +125,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ h1 [] [ text "Journalpost" ]
+        , a [ href "/integrated" ] [ text "Tilbake" ]
         , journalpostinformasjon model.journalpost
         , dokumentinformasjon model.dokumentkategoriList
         , avsenderinformasjon model.avsenderinformasjon

@@ -3,6 +3,9 @@ module Main exposing (..)
 import Html exposing (Html, text, div, h1, p, img)
 import Html.Attributes exposing (src)
 import Test exposing (test)
+import Model exposing (..)
+import TableView exposing (..)
+import Date exposing (fromTime)
 
 
 ---- MODEL ----
@@ -17,12 +20,26 @@ init =
     ( {}, Cmd.none )
 
 
+journalpost : Journalpost
+journalpost =
+    { journalposttype = "Inngående dokument"
+    , enhet = "en enhet"
+    , saksbehandler = "Navnesen, Navn"
+    , journaldato = Date.fromTime 0
+    , registrertDato = Date.fromTime 0
+    , opprettetAv = "noen"
+    , tema = "Sykepenger"
+    , status = "Journalført"
+    , mottakskanal = "Skanning Nets"
+    , beskrivelse = "Arbeidsgiver etterlyser refusjon"
+    , journalpostId = "en Id"
+    , avsenderland = "Norge"
+    , batchnavn = "batchnavn"
+    }
+
+
 
 ---- UPDATE ----
-
-
-type Msg
-    = NoOp
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -36,11 +53,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ img [ src "/logo.svg" ] []
-        , h1 [] [ text "Denne appen skal for seg selv, kun linket til fra Gosys" ]
-        , p [] [ text test ]
-        ]
+    tableview journalpost
 
 
 

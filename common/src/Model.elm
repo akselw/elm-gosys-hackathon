@@ -32,3 +32,7 @@ type alias Sak =
     , saktype : String
     , opprettetMottatt : Date
     }
+
+
+type Msg
+    = NoOp

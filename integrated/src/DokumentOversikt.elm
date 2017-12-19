@@ -58,7 +58,7 @@ journalpostLinje journalpost =
         [ th []
             [ input [ type_ "checkbox" ] []
             ]
-        , th [] [ text "LinkKnapp" ]
+        , th [] [ a [ href "/standalone" ] [ text "Journalpost" ] ]
         , th [] [ text "DokLink" ]
         , th [] [ text (journalpost.journalposttype ++ "Skal konverteres") ]
         , th [] [ text journalpost.journaldato ]

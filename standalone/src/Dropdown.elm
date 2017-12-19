@@ -1,8 +1,8 @@
 module Dropdown exposing (..)
 
-import Html exposing (Html, select, option, text)
+import Html exposing (Html, select, option, text, div, button)
 import Html.Attributes exposing (..)
-import Html.Events exposing (on)
+import Html.Events exposing (on, onClick)
 import Model exposing (..)
 import Html.Events.Extra exposing (targetValueIntParse)
 import Json.Decode as Json
@@ -15,4 +15,7 @@ makeOption d =
 
 dropdown : List Dokumentkategori -> Html Msg
 dropdown dokumentkategoriList =
-    select [ on "change" (Json.map VelgDokumentkategori targetValueIntParse) ] (List.map makeOption dokumentkategoriList)
+    div []
+        [ select [ on "change" (Json.map VelgDokumentkategori targetValueIntParse) ] (List.map makeOption dokumentkategoriList)
+        , button [ onClick LeggTilDokumentkategori ] [ text "Legg til kategori" ]
+        ]

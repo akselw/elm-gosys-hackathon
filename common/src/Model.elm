@@ -15,6 +15,7 @@ type alias Journalpost =
     , journalpostId : String
     , avsenderland : String
     , batchnavn : String
+    , kategorier : List Dokumentkategori
     }
 
 

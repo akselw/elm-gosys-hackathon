@@ -6,6 +6,7 @@ import Journalpostinformasjon exposing (..)
 import Dropdown exposing (..)
 import Dokumentinformasjon exposing (..)
 import Maybe exposing (..)
+import List.Extra exposing (find)
 
 
 ---- MODEL ----
@@ -34,6 +35,7 @@ init =
             , journalpostId = "en Id"
             , avsenderland = "Norge"
             , batchnavn = "batchnavn"
+            , kategorier = []
             }
       , dokumentkategoriList =
             [ { kategoriId = 1, dekode = "en Kategori" }
@@ -51,7 +53,39 @@ init =
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    ( model, Cmd.none )
+    case msg of
+        VelgDokumentkategori kategoriId ->
+            ( velgDokumentkategori kategoriId model, Cmd.none )
+
+        LeggTilDokumentkategori ->
+            ( leggTilDokumentkategori model, Cmd.none )
+
+
+velgDokumentkategori : Int -> Model -> Model
+velgDokumentkategori kategoriId model =
+    { model
+        | valgtDokumentkategori =
+            find
+                (\d -> d.kategoriId == kategoriId)
+                model.dokumentkategoriList
+    }
+
+
+leggTilDokumentkategori : Model -> Model
+leggTilDokumentkategori model =
+    case model.valgtDokumentkategori of
+        Just dokumentkategori ->
+            { model
+                | journalpost = leggTilDokumentkategoriIModel dokumentkategori model.journalpost
+            }
+
+        Nothing ->
+            model
+
+
+leggTilDokumentkategoriIModel : Dokumentkategori -> Journalpost -> Journalpost
+leggTilDokumentkategoriIModel dokumentkategori journalpost =
+    { journalpost | kategorier = dokumentkategori :: journalpost.kategorier }
 
 
 

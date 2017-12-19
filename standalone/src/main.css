@@ -4,7 +4,7 @@
 
 body {
   font-family: 'Source Sans Pro', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Vera Sans', 'Helvetica Neue', sans-serif;
-  margin: 0;
+  margin: 1em 2em;
   color: #3e3832;
 }
 
@@ -26,4 +26,14 @@ th {
 
 td {
     padding-right: 2em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #c30000;
+    margin: 0.5em 0 0.25em;
 }

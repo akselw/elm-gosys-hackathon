@@ -3,18 +3,36 @@ module Main exposing (..)
 import Html exposing (Html, text, div, h1, p, img)
 import Html.Attributes exposing (src)
 import Test exposing (test)
+import Model exposing (Journalpost)
+import Date exposing (fromTime)
+import DokumentOversikt exposing (..)
+import IntegratedModel exposing (..)
 
 
 ---- MODEL ----
 
 
-type alias Model =
-    {}
-
-
 init : ( Model, Cmd Msg )
 init =
-    ( {}, Cmd.none )
+    ( { journalpost = journalpost }, Cmd.none )
+
+
+journalpost : Journalpost
+journalpost =
+    { journalposttype = "Inngående dokument"
+    , enhet = "en enhet"
+    , saksbehandler = "Navnesen, Navn"
+    , journaldato = "18.08.2017"
+    , registrertDato = "17.08.2017"
+    , opprettetAv = "noen"
+    , tema = "Sykepenger"
+    , status = "Journalført"
+    , mottakskanal = "Skanning Nets"
+    , beskrivelse = "Arbeidsgiver etterlyser refusjon"
+    , journalpostId = "en Id"
+    , avsenderland = "Norge"
+    , batchnavn = "batchnavn"
+    }
 
 
 
@@ -36,11 +54,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ img [ src "/logo.svg" ] []
-        , h1 [] [ text "Denne appen skal leve integrert i Gosys" ]
-        , p [] [ text test ]
-        ]
+    dokumentOversikt model
 
 
 

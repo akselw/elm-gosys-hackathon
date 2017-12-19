@@ -1,6 +1,7 @@
 module Saker exposing (..)
 
-import Html exposing (Html, text, td, th, tr, table, thead, h2)
+import Html exposing (Html, text, td, th, tr, table, thead, h2, input)
+import Html.Attributes exposing (type_)
 import Model exposing (..)
 
 
@@ -31,8 +32,8 @@ saker sakList =
 sakRow : Sak -> Html Msg
 sakRow sak =
     tr []
-        [ td [] [ text "checkbox" ]
-        , td [] [ text "checkbox" ]
+        [ td [] [ input [ type_ "checkbox" ] [] ]
+        , td [] [ input [ type_ "checkbox" ] [] ]
         , td [] [ text sak.sakId ]
         , td [] [ text sak.fagsystem ]
         , td [] [ text sak.saktype ]

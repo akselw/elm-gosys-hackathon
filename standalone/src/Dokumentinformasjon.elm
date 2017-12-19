@@ -1,6 +1,7 @@
 module Dokumentinformasjon exposing (..)
 
-import Html exposing (Html, text, td, th, tr, table, thead, h2)
+import Html exposing (Html, text, td, th, tr, table, thead, h2, input)
+import Html.Attributes exposing (type_)
 import Model exposing (..)
 import Dropdown exposing (..)
 
@@ -21,7 +22,7 @@ dokumentinformasjon dokumentkategoriList =
             ]
         , tr []
             [ td [] [ text "en knapp" ]
-            , td [] [ text "ja / nei" ]
+            , td [] [ input [ type_ "checkbox" ] [] ]
             , td [] [ dropdown dokumentkategoriList ]
             ]
         ]

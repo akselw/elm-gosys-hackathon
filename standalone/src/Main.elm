@@ -5,6 +5,7 @@ import Model exposing (..)
 import Journalpostinformasjon exposing (..)
 import Dokumentinformasjon exposing (..)
 import Avsenderinformasjon exposing (..)
+import Saker exposing (..)
 import Maybe exposing (..)
 import List.Extra exposing (find)
 
@@ -17,6 +18,7 @@ type alias Model =
     , dokumentkategoriList : List Dokumentkategori
     , valgtDokumentkategori : Maybe Dokumentkategori
     , avsenderinformasjon : Maybe Bruker
+    , saker : List Sak
     }
 
 
@@ -48,6 +50,26 @@ init =
                 { fodselsnummer = "0000000000"
                 , navn = "Navn Navnesen"
                 }
+      , saker =
+            [ { sakId = "1"
+              , fagsystem = "et fagsystem"
+              , saktype = "en type"
+              , opprettetMottatt = "2017.12.12"
+              , statusFagsak = "all good"
+              , statusEndret = "endret"
+              , ansvarligEnhet = "0023"
+              , detaljer = "en knapp"
+              }
+            , { sakId = "2"
+              , fagsystem = "et annet fagsystem"
+              , saktype = "en annen type"
+              , opprettetMottatt = "2017.10.8"
+              , statusFagsak = "all good"
+              , statusEndret = "endret"
+              , ansvarligEnhet = "0023"
+              , detaljer = "en knapp"
+              }
+            ]
       }
     , Cmd.none
     )
@@ -105,6 +127,7 @@ view model =
         , journalpostinformasjon model.journalpost
         , dokumentinformasjon model.dokumentkategoriList
         , avsenderinformasjon model.avsenderinformasjon
+        , saker model.saker
         ]
 
 

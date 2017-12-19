@@ -30,6 +30,10 @@ type alias Sak =
     , fagsystem : String
     , saktype : String
     , opprettetMottatt : String
+    , statusFagsak : String
+    , statusEndret : String
+    , ansvarligEnhet : String
+    , detaljer : String
     }
 
 

@@ -3,16 +3,25 @@ Repoet inneholder to tomme elm-apper som deler kode. `integrated/` inneholder en
 # Installasjon
 
 1. Installer [node](https://nodejs.org/en/)
-2. Installer `create-elm-app`, på følgende måte:
+2. Installer [docker](https://www.docker.com/docker-mac)
+3. Installer `create-elm-app`, på følgende måte:
 
 ```
 npm install create-elm-app -g
 ```
 
-# Kjøring
+# Kjøring under utvikling
 
 I enten `integrated/` eller `standalone/` kjør følgende kommando:
 
 ```
 elm-app start
+```
+
+# Bygging og kjøring med docker
+
+I enten `integrated/` eller `standalone/` kjør følgende kommando:
+
+```
+./run.sh
 ```

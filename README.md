@@ -18,10 +18,21 @@ I enten `integrated/` eller `standalone/` kjør følgende kommando:
 elm-app start
 ```
 
-# Bygging og kjøring med docker
+# Bygging og kjøring med Docker
 
-I enten `integrated/` eller `standalone/` kjør følgende kommando:
+Kjør følgende kommando i roten av Git-repoet for å bygge Docker-containeren:
 
 ```
-./run.sh
+docker build -t gosys-elm .
 ```
+
+Deretter kan du starte opp containeren:
+
+```
+docker run --interactive --tty --rm --publish 8080:80 gosys-elm 
+```
+
+Applikasjonene kjører nå på:
+
+* http://localhost:8080/standalone
+* http://localhost:8080/integrated

@@ -13,3 +13,23 @@ img {
   margin: 20px 0;
   max-width: 200px;
 }
+
+table {
+    border: 0;
+    border-collapse: collapse;
+}
+
+td, th {
+    text-align: left;
+    padding: 0.2em;
+    margin: 0;
+}
+
+th {
+    background: #a6dad8;
+    padding-right: 1em;
+}
+
+td {
+    padding-right: 2em;
+}

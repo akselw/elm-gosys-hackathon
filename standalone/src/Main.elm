@@ -4,6 +4,7 @@ import Html exposing (Html, text, div, h1, p, img)
 import Model exposing (..)
 import Journalpostinformasjon exposing (..)
 import Dropdown exposing (..)
+import Dokumentinformasjon exposing (..)
 
 
 ---- MODEL ----
@@ -58,7 +59,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ journalpostinformasjon journalpost
-        , dropdown dokumentkategoriList
+        , dokumentinformasjon dokumentkategoriList
         ]
 
 

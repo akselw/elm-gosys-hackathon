@@ -3,8 +3,8 @@ module Main exposing (..)
 import Html exposing (Html, text, div, h1)
 import Model exposing (..)
 import Journalpostinformasjon exposing (..)
-import Dropdown exposing (..)
 import Dokumentinformasjon exposing (..)
+import Avsenderinformasjon exposing (..)
 import Maybe exposing (..)
 import List.Extra exposing (find)
 
@@ -16,6 +16,7 @@ type alias Model =
     { journalpost : Journalpost
     , dokumentkategoriList : List Dokumentkategori
     , valgtDokumentkategori : Maybe Dokumentkategori
+    , avsenderinformasjon : Maybe Bruker
     }
 
 
@@ -42,6 +43,11 @@ init =
             , { kategoriId = 2, dekode = "en Kategori til" }
             ]
       , valgtDokumentkategori = Nothing
+      , avsenderinformasjon =
+            Just
+                { fodselsnummer = "0000000000"
+                , navn = "Navn Navnesen"
+                }
       }
     , Cmd.none
     )
@@ -98,6 +104,7 @@ view model =
         [ h1 [] [ text "Journalpost" ]
         , journalpostinformasjon model.journalpost
         , dokumentinformasjon model.dokumentkategoriList
+        , avsenderinformasjon model.avsenderinformasjon
         ]
 
 

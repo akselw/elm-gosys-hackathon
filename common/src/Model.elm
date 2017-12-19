@@ -39,6 +39,12 @@ type alias Dokumentkategori =
     }
 
 
+type alias Bruker =
+    { fodselsnummer : String
+    , navn : String
+    }
+
+
 type Msg
     = VelgDokumentkategori Int
     | LeggTilDokumentkategori

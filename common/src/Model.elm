@@ -32,5 +32,9 @@ type alias Sak =
     }
 
 
+type alias Dokumentkategori =
+    String
+
+
 type Msg
     = NoOp

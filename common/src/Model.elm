@@ -15,6 +15,7 @@ type alias Journalpost =
     , journalpostId : String
     , avsenderland : String
     , batchnavn : String
+    , kategorier : List Dokumentkategori
     }
 
 
@@ -29,12 +30,22 @@ type alias Sak =
     , fagsystem : String
     , saktype : String
     , opprettetMottatt : String
+    , statusFagsak : String
+    , statusEndret : String
+    , ansvarligEnhet : String
+    , detaljer : String
     }
 
 
 type alias Dokumentkategori =
     { kategoriId : Int
     , dekode : String
+    }
+
+
+type alias Bruker =
+    { fodselsnummer : String
+    , navn : String
     }
 
 

@@ -30,6 +30,7 @@ journalpost1 =
     , journalpostId = "en annen id"
     , avsenderland = "Sverige"
     , batchnavn = "batchnavn"
+    , kategorier = []
     }
 
 
@@ -48,6 +49,7 @@ journalpost2 =
     , journalpostId = "en Id"
     , avsenderland = "Norge"
     , batchnavn = "batchnavn"
+    , kategorier = []
     }
 
 
